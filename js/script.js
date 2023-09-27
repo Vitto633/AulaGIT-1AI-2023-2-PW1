@@ -31,6 +31,22 @@ function login(){
         var resultado_exi2 = document.getElementById("resultado_exi2");
         resultado_exi2.textContent = resultado;
 }
+    function nmprod(resultado) {
+    var nmprod = document.getElementById("nmprod");
+    nmprod.textContent = resultado;
+}
+    function prprod(resultado) {
+    var prprod = document.getElementById("prprod");
+    prprod.textContent = resultado;
+}
+    function maprod(resultado) {
+    var maprod = document.getElementById("maprod");
+    maprod.textContent = resultado;
+}
+    function exibecar(resultado) {
+    var exibecar = document.getElementById("exibecar");
+    exibecar.textContent = resultado;
+}
 
     function somar() {
         var n1 = parseInt(prompt("Digite o primeiro número"));
@@ -174,59 +190,111 @@ function login(){
 
        }
 
-       function array_exemplo(){
-        let n = [3, 4, 5, 6, 2, 1]
-        console.log("Esse console log mostra o array completo " + n)
-        console.log("Esse console log mostra o valor no índice 0 do array " + n[0])
-        console.log("Esse console log mostra o valor no índice 6 do array " + n[6])
-        n[6] = "7"
-        console.log("Esse console log mostra o valor no índice 6 do array " + n[6])
-        console.log("Esse console log mostra o array completo ")
-        console.log(n)
-        n.push(50)
-        n.push(32)
-        n.push(33)
-        console.log("Esse console log mostra o array completo ")
-        console.log(n)
-        n.pop()
-        console.log("Esse console log mostra o array completo ")
-        console.log(n)
-        
-       }
+       function atualizarMarcas() {
+        const produtoSelecionado = document.getElementById("prod_nome").value;
+        const marcasSelect = document.getElementById("prod_marca");
 
-       function objeto(){
-        //Produtos
-        let carrinho_de_compras = []
-        // let nome = "Arroz"
-        // let preco = 9.99
-        // let marca = "Tio João"
+        // Limpa as opções anteriores
+        marcasSelect.innerHTML = "";
 
-        let produto = {
-            nome_prod: "Arroz",
-            preco_prod: 9.99,
-            marca_prod: "Tio João"
+        if (produtoSelecionado === "Tênis") {
+            // Opções de marcas de tênis
+            const marcas = ["Nike", "Adidas", "Reebok", "Asics", "Olympikus", "Diavolo", "Fila"];
+            adicionarOpcoesMarcas(marcas, marcasSelect);
+        } else if (produtoSelecionado === "Arroz") {
+            // Opções de marcas de arroz
+            const marcas = ["Camil", "Tio João", "Prato Fino"];
+            adicionarOpcoesMarcas(marcas, marcasSelect);
+        } else if (produtoSelecionado === "Feijão") {
+            // Opções de marcas de feijão
+            const marcas = ["Camil", "Kicaldo", "Caldo Bom"];
+            adicionarOpcoesMarcas(marcas, marcasSelect);
         }
-        carrinho_de_compras.push(produto);
-        
-        let produto2 = {
-            nome_prod: "Feijão",
-            preco_prod: 7.35,
-            marca_prod: "Namorado"
+    }
+
+    // Função para adicionar opções de marca a um select
+    function adicionarOpcoesMarcas(marcas, select) {
+        marcas.forEach(marca => {
+            const option = document.createElement("option");
+            option.value = marca;
+            option.textContent = marca;
+            select.appendChild(option);
+        });
+    }
+
+    function cadastrar() {
+        const produto = {
+            nome: document.getElementById("prod_nome").value,
+            marca: document.getElementById("prod_marca").value,
+            preco: document.getElementById("prod_preco").value
         }
-        carrinho_de_compras.push(produto2);
+    
+        const lista_item = document.createElement("li")
+        const prod_nome = document.createElement("h3")
+        const prod_preco = document.createElement("h4")
+        const prod_marca = document.createElement("p")
+    
+        prod_nome.innerHTML = produto.nome;
+        prod_marca.innerHTML = "Marca do produto: " + produto.marca
+        prod_preco.innerHTML = "Preço do produto: R$" + produto.preco
+    
+        lista_item.appendChild(prod_nome)
+        lista_item.appendChild(prod_marca)
+        lista_item.appendChild(prod_preco)
+    
+        document.getElementById("lista_prod").appendChild(lista_item);
+    
+        
+        document.getElementById("prod_nome").value = ""
+        document.getElementById("prod_marca").value = ""
+        document.getElementById("prod_preco").value = ""
+    }
 
-        console.log(carrinho_de_compras)
-        console.log(carrinho_de_compras[0].nome_prod)
-       }
+    function Nome(param1, param2){
+        //Código
+        return
+    }
 
+    (param1, param2) => {
+        //Código
+        return
+    }
+    
+    () => {   }
+    
+    
+    //Função Map
+    //Array = [    ]
+    //Objeto Produto = { foto, modelo, preço, qtd em estoque, nome, código }
+       
+    const numeros = [ 5, 48, 65, 33, 12, 79, 8, 44 ]
+    const novoNumeros  = []  
+    numeros.map( (num) => { 
+        novoNumeros.push(num * 2)
+
+    } )
+
+    console.log("Arrow function array01: " + numeros)
+    console.log("Arrow function array01: " + novoNumeros)
+    
+    const numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ]
+    const result = []
+    numbers.map( (par) => { 
+        if ( par % 2 === 0 ){
+            result.push(par)
+        }
+    } )
+
+    console.log("Arrow function exercício pares: " + numbers)
+    console.log("Arrow function exercício pares: " + result)
 
 
       
 
        
-
-       
-
+     
+    // Pesquisar filtros       
+    // Para cada elemento do array executa a função dentro do .map
     // usando getelementbyid ele retorna uma string!!!
     // let n1[] = [3, 4, 5, 6, 2, 1] tudo que está dentro de um array é um conjunto de elementos do mesmo tipo.
     // push(n) adiciona n a uma "pilha".
