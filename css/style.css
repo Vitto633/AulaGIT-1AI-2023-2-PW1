@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 *{
     box-sizing: border-box;
     font-family: 'JetBrains Mono', sans-serif;
@@ -7,6 +9,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #0c0c0c93;
+    color: white;
 }
 
 header {
@@ -103,6 +106,7 @@ input:focus{
 }
 
 #listaProd li {
+    list-style: none;
     font-size: 18px;
     text-align: center;
     padding: 10px;
@@ -111,6 +115,7 @@ input:focus{
     margin: 0 auto;
     border-radius: 5px;
     background-color: #f0f0f0;
+    color: black;
 }
 
 #lista_prod li {
